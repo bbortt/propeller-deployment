@@ -3,6 +3,15 @@ kind: Kustomization
 
 namespace: propeller
 
+commonLabels:
+  app.kubernetes.io/name: propeller
+  app.kubernetes.io/instance: ci/cd
+  app.kubernetes.io/version: ephemeral
+  app.kubernetes.io/component: hello-world
+  app.kubernetes.io/part-of: propeller
+  app.kubernetes.io/managed-by: kustomize
+
 resources:
   - pre-sync.hook.yml
+  - configMap.yml
   - deployment.yml
